@@ -1,0 +1,8 @@
+/* Overriding default Bootstrap styles */
+.custom-navbar {
+  background-color: #672280 !important;
+}
+
+.custom-navbar a {
+  color: #fff !important;
+}
