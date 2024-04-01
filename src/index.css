@@ -6,3 +6,8 @@
 .custom-navbar a {
   color: #fff !important;
 }
+
+.custom-btn {
+  background-color: #672280 !important;
+  border: none !important;
+}
