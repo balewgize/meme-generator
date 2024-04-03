@@ -1,8 +1,19 @@
+import { useState } from "react";
+import memesData from "./memesData"
 
 export default function Meme() {
+    const [memeImage, setMemeImage] = useState("");
+
+    const getMemeImage = () => {
+        // TODO: fetch memes data from API
+        const memesArray = memesData.data.memes
+        const randomMeme = memesArray[Math.floor(Math.random() * memesArray.length)]
+        setMemeImage(randomMeme.url);
+    };
+
     return (
-        <>
-            <form>
+        <div>
+            <div className="form">
                 <div className="d-flex flex-column flex-lg-row p-2">
                     <div className="mb-2 mx-0 me-lg-2 w-100">
                         <label htmlFor="top-text" className="form-label">Top text</label>
@@ -14,9 +25,12 @@ export default function Meme() {
                     </div>
                 </div>
                 <div className="p-2">
-                    <button type="submit" className="btn btn-primary d-block w-100 custom-btn">Generate a new meme image ✅</button>
+                    <button onClick={getMemeImage} className="btn btn-primary d-block w-100 custom-btn">Generate a new meme image ✅</button>
                 </div>
-            </form>
-        </>
+            </div>
+            <div className="text-center mt-3 mb-5">
+                <img src={memeImage} className="rounded" />
+            </div>
+        </div>
     )
 }
